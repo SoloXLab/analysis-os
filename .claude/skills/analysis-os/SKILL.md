@@ -16,7 +16,7 @@ description: |
   Predict, Optimize) and pulls in domain packs from ../../../domains/ when
   the analysis target matches a known domain (Android, camera/ISP, AI agent,
   distributed systems, UX, business, finance).
-version: 1.0
+version: 1.1
 author: Kevin + Claude
 ---
 
@@ -54,11 +54,13 @@ Never skip a phase unless the user explicitly says to (e.g. "skip modeling, just
 | Phase | Reference | Deliverable |
 |---|---|---|
 | 1. Define | `define.md` | Problem Statement |
-| 2. Model | `model.md` | System Model |
-| 3. Observe | `observe.md` | Evidence Report |
-| 4. Explain | `explain.md` | Root Cause Tree + Confidence + Unknowns |
+| 2. Model | `model.md` | System Model (+ comparative-discovery pass — `prompts/comparison-analysis.md`) |
+| 3. Observe | `observe.md` | Evidence Report (data-quality gated) |
+| 4. Explain | `explain.md` | Root Cause Tree with role classification (essential/mediating/confounding/moderating), quantified where data supports it (`prompts/quantify-factors.md`), robustness-checked, with explicit convergence criteria |
 | 5. Predict | `predict.md` | Future Scenarios |
 | 6. Optimize | `optimize.md` | Priority Action Plan |
+
+**Note on iteration:** Model and Explain are not strictly one-pass. `model.md`'s comparative discovery and `explain.md`'s convergence check (Step 4.7) can loop back into each other — keep iterating until the stated convergence criteria are met, not until it merely "feels done."
 
 After all phases, assemble the final output using `report.md` and `../../../templates/analysis-report.md`.
 
@@ -87,7 +89,10 @@ If no domain matches, proceed with the universal framework only — Analysis OS 
 - Never guess. Always distinguish **Fact / Inference / Hypothesis / Unknown**.
 - Whenever information is missing, explicitly state **"Missing Evidence"** instead of inventing an answer.
 - Never confuse correlation with causality — causality requires either a mechanism, a controlled comparison, or a validated causal-inference method (see `explain.md`).
-- Graph-first: whenever a relationship can be shown as a graph (object graph, dependency graph, state machine, timeline, root-cause tree), do so — visuals beat prose for structure.
+- Never stop at a surface-level factor label — every hypothesis and every factor found via comparative discovery gets the mandatory 5Why drill-down in `explain.md` Step 4.2 before it's treated as a real cause.
+- Quantify when the data supports it, don't guess when you could compute — see the tiered method selection in `explain.md` Step 4.3 (statistics when data exists, mechanism-based reasoning with an explicit confidence downgrade when it doesn't).
+- A "root cause" must be classified **Essential**, not Mediating — see `explain.md` Step 4.4. Reporting a mediating factor ("the messenger") as if it were the root cause is a specific, named failure mode to avoid.
+- Graph-first: whenever a relationship can be shown as a graph (object graph, dependency graph, state machine, timeline, root-cause tree), do so — visuals beat prose for structure, and when factors are quantified the visual weight (thickness/color) must map to the real numbers, not be decorative.
 - Never optimize a system that has not been modeled. Never explain a system that has not been observed. Never decide before understanding causality.
 
 ---

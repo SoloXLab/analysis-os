@@ -54,3 +54,4 @@ chore:     仓库维护
 
 - 2026-07-03：初始化仓库，采用 v1.0 结构（Skill-based framework）。v2.0（Analysis Graph）和 v3.0（Multi-Agent）见 `roadmap.md`，暂不实现。
 - 2026-07-03：选择 MIT License，仓库设为 public，归属 SoloXLab 组织。
+- 2026-07-03：v1.1 — 从 `factor-analyzer` 技能吸收量化严谨性（强制 5Why 深挖、r/β/压缩幅度统计、因子角色分类、跨组稳健性验证、收敛判定标准、横纵向比较发现遗漏因子、强制白话注释、权重编码可视化），同时保留 Analysis OS 无数据也能用的 Tier D 降级路径，不强制要求统计数据。详见 `CHANGELOG.md` [1.1.0]。
