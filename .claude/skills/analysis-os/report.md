@@ -37,6 +37,10 @@ For anything beyond a quick informal request, confirm with the person at these p
 
 Short/simple requests can skip explicit checkpoints and just state assumptions inline as they're made.
 
+## Compliance visibility (required, not just internal)
+
+Running `checklist.md`'s gate internally and then writing a clean-looking report is not enough — if a requirement was degraded or skipped, the person reading the report needs to see that, not just trust that it was handled. For any non-trivial analysis, close the response with a short, honest account of what was actually done vs. degraded (tier used per factor, whether a diagram was actually rendered, sample coverage of any dataset, what didn't converge). This doesn't need `checklist.md`'s full internal checkbox format verbatim — it needs the same information stated in plain prose so the person can tell, without asking, which parts of the analysis are solid and which parts hit a real limit.
+
 ## Output skeleton
 
 ```

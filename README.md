@@ -41,7 +41,7 @@ The **domain knowledge changes**; the **reasoning framework stays constant**.
 
 ```
 analysis-os/
-├── .claude/skills/analysis-os/   # The actual Claude Code Skill (orchestrator + sub-phases)
+├── .claude/skills/analysis-os/   # The actual Claude Code Skill (orchestrator + sub-phases + compliance gate)
 ├── docs/                         # Philosophy, methodology, architecture, graph model
 ├── domains/                      # Domain packs: android, camera, ai-agent, distributed, ux, business, finance
 ├── templates/                    # Reusable output templates (report, hypothesis, root-cause, decision...)

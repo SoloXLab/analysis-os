@@ -25,3 +25,12 @@
 - SKILL.md thinking rules updated to reference the above; version bumped to 1.1
 
 These additions were absorbed from the `factor-analyzer` skill's quantitative rigor (5Why depth, r/β/compression statistics, mandatory visualization) while keeping Analysis OS general-purpose and usable without data (Tier D fallback).
+
+## [1.2.0] - 2026-07-03
+### Added
+- `checklist.md` — mandatory Compliance Gate run after drafting a report and before sending it. Every v1.1 requirement (comparative discovery, mandatory 5Why, quantification tier per factor, factor role classification, robustness check, convergence statement, actual rendered visualization, plain-language annotation, data quality gate) must be explicitly marked Done / Explicitly degraded / N/A — not just have been "followed" while writing.
+- SKILL.md updated to require running the Compliance Gate as a mandatory final phase, separate from following the phase files while drafting.
+- report.md updated to require visible compliance reporting to the person, not just an internal check — degradations must be stated in the delivered output, not only verified silently.
+
+### Rationale
+Every rule added in v1.1 already existed in the skill and was still silently skipped in practice, because "the rule exists in the skill" and "the rule was checked against this specific output" are different things, and nothing enforced the second. v1.2 adds that enforcement point.

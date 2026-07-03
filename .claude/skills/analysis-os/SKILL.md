@@ -16,7 +16,7 @@ description: |
   Predict, Optimize) and pulls in domain packs from ../../../domains/ when
   the analysis target matches a known domain (Android, camera/ISP, AI agent,
   distributed systems, UX, business, finance).
-version: 1.1
+version: 1.2
 author: Kevin + Claude
 ---
 
@@ -61,6 +61,12 @@ Never skip a phase unless the user explicitly says to (e.g. "skip modeling, just
 | 6. Optimize | `optimize.md` | Priority Action Plan |
 
 **Note on iteration:** Model and Explain are not strictly one-pass. `model.md`'s comparative discovery and `explain.md`'s convergence check (Step 4.7) can loop back into each other — keep iterating until the stated convergence criteria are met, not until it merely "feels done."
+
+## Mandatory final phase — Compliance Gate
+
+**Before sending any non-trivial output, run `checklist.md` in full.** This is not optional and not the same as having followed the rules in `model.md`/`explain.md`/`observe.md`/`report.md` while writing the report — it is a separate, explicit pass/fail check run after the draft exists. A rule that lives in a phase file but was never checked against the actual output is a rule that gets silently skipped; this gate is what closes that gap.
+
+For short/informal requests, run Quick mode from `checklist.md` instead of the full gate — but never skip the gate step entirely just because a request seems simple.
 
 After all phases, assemble the final output using `report.md` and `../../../templates/analysis-report.md`.
 
